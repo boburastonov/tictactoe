@@ -6,7 +6,7 @@ let winnerText = "";
 
 let data = ["", "", "", "", "", "", "", "", ""];
 
-export function TicTacToe(props) {
+export function TicTacToe() {
   let [count, setCount] = useState(0);
   let [lock, setLock] = useState(false);
   let box1 = useRef(null);
@@ -22,15 +22,15 @@ export function TicTacToe(props) {
   let box_array = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 
   const toggle = (e, num) => {
-    if (lock) {
-      return 0;
-    }
+    e.target.classList.remove("hvr");
     if (count % 2 === 0) {
       e.target.innerHTML = `<img src='${crossIcon}'>`;
+      e.target.classList.add("active-red");
       data[num] = "x";
       setCount(++count);
     } else {
       e.target.innerHTML = `<img src='${circleIcon}'>`;
+      e.target.classList.add("active-orng");
       data[num] = "o";
       setCount(++count);
     }
@@ -70,8 +70,6 @@ export function TicTacToe(props) {
   };
 
   const removeModal = () => {
-    setLock(false);
-    data = ["", "", "", "", "", "", "", "", ""];
     winnerText = "";
     document.querySelector(".modal-window").classList.remove("visible");
     box_array.map((e) => {
@@ -92,19 +90,55 @@ export function TicTacToe(props) {
       <div className="container">
         <div className="board">
           <div className="row1">
-            <div className="box" ref={box1} onClick={(e) => toggle(e, 0)}></div>
-            <div className="box" ref={box2} onClick={(e) => toggle(e, 1)}></div>
-            <div className="box" ref={box3} onClick={(e) => toggle(e, 2)}></div>
+            <div
+              className="box hvr"
+              ref={box1}
+              onClick={(e) => toggle(e, 0)}
+            ></div>
+            <div
+              className="box hvr"
+              ref={box2}
+              onClick={(e) => toggle(e, 1)}
+            ></div>
+            <div
+              className="box hvr"
+              ref={box3}
+              onClick={(e) => toggle(e, 2)}
+            ></div>
           </div>
           <div className="row2">
-            <div className="box" ref={box4} onClick={(e) => toggle(e, 3)}></div>
-            <div className="box" ref={box5} onClick={(e) => toggle(e, 4)}></div>
-            <div className="box" ref={box6} onClick={(e) => toggle(e, 5)}></div>
+            <div
+              className="box hvr"
+              ref={box4}
+              onClick={(e) => toggle(e, 3)}
+            ></div>
+            <div
+              className="box hvr"
+              ref={box5}
+              onClick={(e) => toggle(e, 4)}
+            ></div>
+            <div
+              className="box hvr"
+              ref={box6}
+              onClick={(e) => toggle(e, 5)}
+            ></div>
           </div>
           <div className="row3">
-            <div className="box" ref={box7} onClick={(e) => toggle(e, 6)}></div>
-            <div className="box" ref={box8} onClick={(e) => toggle(e, 7)}></div>
-            <div className="box" ref={box9} onClick={(e) => toggle(e, 8)}></div>
+            <div
+              className="box hvr"
+              ref={box7}
+              onClick={(e) => toggle(e, 6)}
+            ></div>
+            <div
+              className="box hvr"
+              ref={box8}
+              onClick={(e) => toggle(e, 7)}
+            ></div>
+            <div
+              className="box hvr"
+              ref={box9}
+              onClick={(e) => toggle(e, 8)}
+            ></div>
           </div>
         </div>
       </div>

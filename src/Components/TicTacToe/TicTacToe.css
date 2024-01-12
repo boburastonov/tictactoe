@@ -5,8 +5,9 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(256, 256, 256, .7);
     display: none;
+    z-index: 999;
 }
 
 .visible {
@@ -43,7 +44,8 @@
 
 .container {
     text-align: center;
-    margin-top: 6.5rem;
+    transform: translateY(6.5rem);
+    z-index: 1;
 }
 
 .board {
@@ -67,6 +69,22 @@
     cursor: pointer;
 }
 
-.box:hover {
+.box:hover.hvr {
     background-color: #3D4253;
+}
+
+.active-orng {
+    background-color: #EEAF49;
+}
+
+.active-red {
+    background-color: #DD6859;
+}
+
+.crossBg {
+    background: url('../Assets/close.png');
+}
+
+.circleBg {
+    background: url('../Assets/circle.png');
 }
